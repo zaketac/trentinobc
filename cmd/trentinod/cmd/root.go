@@ -30,7 +30,7 @@ import (
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/zaketac/trentinobc/app"
-	"github.com/cosmos/zaketac/trentinobc/app/params"
+	"github.com/zaketac/trentinobc/app/params"
 )
 
 // NewRootCmd creates a new root command for simd. It is called once in the
