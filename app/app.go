@@ -91,7 +91,7 @@ import (
 	_ "github.com/cosmos/cosmos-sdk/client/docs/statik"
 )
 
-const appName = "trentinod"
+const appName = "GaiaApp"
 
 var (
 	// DefaultNodeHome default home directories for the application daemon
