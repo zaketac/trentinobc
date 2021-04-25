@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  trentinodnode0:
+    container_name: trentinodnode0
+    image: "tendermint/trentinodnode"
+    ports:
+      - "26656-26657:26656-26657"
+    environment:
+      - ID=0
+      - LOG=${LOG:-trentinod.log}
+    volumes:
+      - ./build:/trentinod:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.2
+
+  trentinodnode1:
+    container_name: trentinodnode1
+    image: "tendermint/trentinodnode"
+    ports:
+      - "26659-26660:26656-26657"
+    environment:
+      - ID=1
+      - LOG=${LOG:-trentinod.log}
+    volumes:
+      - ./build:/trentinod:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.3
+
+  trentinodnode2:
+    container_name: trentinodnode2
+    image: "tendermint/trentinodnode"
+    environment:
+      - ID=2
+      - LOG=${LOG:-trentinod.log}
+    ports:
+      - "26661-26662:26656-26657"
+    volumes:
+      - ./build:/trentinod:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.4
+
+  trentinodnode3:
+    container_name: trentinodnode3
+    image: "tendermint/trentinodnode"
+    environment:
+      - ID=3
+      - LOG=${LOG:-trentinod.log}
+    ports:
+      - "26663-26664:26656-26657"
+    volumes:
+      - ./build:/trentinod:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.5
+
+networks:
+  localnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 192.168.10.0/16
+
